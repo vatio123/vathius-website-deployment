@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
+import { smoothScroll } from '../lib/smoothScroll'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -28,16 +29,16 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
+              <a onClick={() => smoothScroll("home")} className="cursor-pointer text-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
                 Start
               </a>
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
+              <a onClick={() => smoothScroll("about")} className="cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
                 Über uns
               </a>
-              <a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
+              <a onClick={() => smoothScroll("services")} className="cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
                 Dienstleistungen
               </a>
-              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
+              <a onClick={() => smoothScroll("contact")} className="cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">
                 Kontakt
               </a>
             </div>
@@ -67,16 +68,16 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card border-t border-border">
-              <a href="#home" className="text-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
+              <a onClick={() => { smoothScroll("home"); toggleMenu(); }} className="cursor-pointer text-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Start
               </a>
-              <a href="#about" className="text-muted-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
+              <a onClick={() => { smoothScroll("about"); toggleMenu(); }} className="cursor-pointer text-muted-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Über uns
               </a>
-              <a href="#services" className="text-muted-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
+              <a onClick={() => { smoothScroll("services"); toggleMenu(); }} className="cursor-pointer text-muted-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Dienstleistungen
               </a>
-              <a href="#contact" className="text-muted-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
+              <a onClick={() => { smoothScroll("contact"); toggleMenu(); }} className="cursor-pointer text-muted-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Kontakt
               </a>
               <div className="px-3 py-2">

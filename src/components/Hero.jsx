@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Code, Users } from 'lucide-react'
 import heroBackground from '../assets/hero-background.png'
+import { smoothScroll } from '../lib/smoothScroll'
 
 const Hero = () => {
   return (
@@ -35,11 +36,11 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group" onClick={() => smoothScroll("contact")}>
               Projekt besprechen
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="border-border hover:bg-card">
+            <Button size="lg" variant="outline" className="border-border hover:bg-card" onClick={() => smoothScroll("about")}>
               Mehr erfahren
             </Button>
           </div>
